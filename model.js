@@ -3,13 +3,6 @@ Nodes = new Meteor.Collection("nodes");
 
 
 
-
-
-
-
-
-
-
 if (Meteor.isServer) {
 	Meteor.startup(function () {
 
@@ -45,3 +38,13 @@ if (Meteor.isServer) {
 }
 
 	
+Meteor.methods({
+	'add_new_node': function(node) {
+      if (!node.name || !node.url) {
+        throw new Meteor.Error(400, "Required parameters are missing");
+      }
+      inserted =  Nodes.insert(node); 
+      console.log("Inserted new node:", inserted, node);
+      return inserted;
+	}
+});
