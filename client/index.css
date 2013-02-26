@@ -1,0 +1,79 @@
+
+body {
+	background-color: rgb(225, 192, 119);
+}
+
+hr {
+	border-color: #adbfce;
+}
+
+.float-left {
+	float: left;
+}
+.float-right {
+	/*float: right;*/
+	padding: 15px;
+}
+.top-divider {
+	clear:	both;
+}
+
+.right-divider {
+	border-right: #adbfce;
+}
+
+img.node-image {
+	width:96px;
+	height:96px;
+}
+
+.panel {
+	margin-top:    8px !important;
+	margin-bottom: 8px !important;
+	border-radius: 10px;
+}
+
+.right-aligned {
+	text-align: right;
+	vertical-align: middle;
+	display: table-cell;
+}
+
+
+
+.block:before {
+  content: '';
+  display: inline-block;
+  height: 100%; 
+  vertical-align: middle;
+  margin-right: -0.25em; /* Adjusts for spacing */
+    
+  /* For visualization 
+  background: #808080; width: 5px;
+  */
+ }
+ 
+.centered {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 10px 15px;
+ }
+
+
+
+
+/* ICONS */
+i[class*="foundicon-"] {
+	-webkit-transition: color .5s;
+	-moz-transition: color .5s;
+	-o-transition: color .5s;
+	transition: color .5s;
+}
+
+i.foundicon-up-arrow:hover {
+	color: green;
+}
+
+i.foundicon-down-arrow:hover, i.foundicon-remove:hover {
+	color: #980000;
+}
