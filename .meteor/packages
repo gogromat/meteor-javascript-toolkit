@@ -9,3 +9,4 @@ accounts-base
 accounts-github
 accounts-google
 accounts-password
+mocha-web

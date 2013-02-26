@@ -13,7 +13,7 @@ Template.add_node.events({
             image    = new_image.val().trim(),
             new_description = $("#new_node_description"),
             description     = new_description.val().trim(),
-            new_node_item   = {name:'',url:'',address:'',description:''};  	
+            new_node_item   = {name:'',url:'',description:'',owner: Meteor.userId()};  	
 
         if (name === "" || url === "") {
           return false;

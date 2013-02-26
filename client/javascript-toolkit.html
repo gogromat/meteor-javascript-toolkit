@@ -3,6 +3,7 @@
 </head>
 
 <body>
+	{{> mochaTestReport}}
 
 	{{>header}}
 
@@ -48,7 +49,7 @@
 				<img src="{{image}}">
 			{{/if}}
 			<div>
-				{{description}}
+				{{description}} <strong>Owner:</strong>{{owner}}
 			</div>
 		</div>
 	{{/each}}

@@ -19,8 +19,12 @@ Meteor.users.deny({
 	// allow for now
 	insert: function () {
 		return false;
+	},
+	remove: function () {
+		return true;
 	}
 });
+
 
 
 function getUsers() {
