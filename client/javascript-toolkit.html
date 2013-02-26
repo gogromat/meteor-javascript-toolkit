@@ -50,6 +50,11 @@
 			{{/if}}
 			<div>
 				{{description}} <strong>Owner:</strong>{{owner}}
+				{{#if isClientOwner}}
+					{{> delete_node}}
+				{{else}}
+					
+				{{/if}}
 			</div>
 		</div>
 	{{/each}}

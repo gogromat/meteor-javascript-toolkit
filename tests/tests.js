@@ -27,12 +27,9 @@ describe('Nodes', function() {
 
     it('should remove new node', function () {
 	    var nodeOld = Nodes.findOne({name: new_node.name});
-        Meteor.call("remove_node", nodeOld._id, function (error, result) {
-        	setTimeout(function(){
-				var node2 = Nodes.findOne({name:new_node.name});
-		        chai.assert.isUndefined(node2);
-        	},3000);
-        });
+        Meteor.call("remove_node", nodeOld._id);
+		var node2   = Nodes.findOne({name: new_node.name});
+        chai.assert.isUndefined(node2);
     });
 
 
