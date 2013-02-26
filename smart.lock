@@ -6,13 +6,55 @@
   },
   "dependencies": {
     "basePackages": {
-      "mocha-web": {}
+      "mocha-web": {},
+      "meteor-foundation": {
+        "git": "git://github.com/rubyblackbelt/meteor-foundation.git",
+        "branch": "master"
+      },
+      "foundation-icons-general": {},
+      "foundation-icons-gen-enclosed": {},
+      "foundation-icons-social": {},
+      "foundation-icons-accessibility": {},
+      "metrouicss": {
+        "git": "https://github.com/gogromat/meteor-metro-ui",
+        "branch": "master"
+      }
     },
     "packages": {
       "mocha-web": {
         "git": "https://github.com/mad-eye/meteor-mocha-web.git",
-        "tag": "v0.0.2",
-        "commit": "c534e901f9e5423240ab9c2de121890999d68bbb"
+        "tag": "v0.0.3",
+        "commit": "aa37d9be6dd90d4abeba6de0b693e2e0297dfe54"
+      },
+      "meteor-foundation": {
+        "git": "git://github.com/rubyblackbelt/meteor-foundation.git",
+        "branch": "master",
+        "commit": "761d14fb95ee9e884d7ffe1b7bf7098c79426c6e"
+      },
+      "foundation-icons-general": {
+        "git": "https://github.com/IainShigeoka/meteor-foundation-icons-general.git",
+        "tag": "v1.0.1",
+        "commit": "0d16dc77ffb76180d63dcbc58716bd1dbf7d66d5"
+      },
+      "foundation-icons-gen-enclosed": {
+        "git": "https://github.com/IainShigeoka/meteor-foundation-icons-gen-enclosed.git",
+        "tag": "v1.0.1",
+        "commit": "05e89eea5c377ead581c28a13ac528db92c7fac0"
+      },
+      "foundation-icons-social": {
+        "git": "https://github.com/IainShigeoka/meteor-foundation-icons-social.git",
+        "tag": "v1.0.1",
+        "commit": "c209868d26fd39b4ece777a3c0b010207618042d"
+      },
+      "foundation-icons-accessibility": {
+        "git": "https://github.com/IainShigeoka/meteor-foundation-icons-accessibility.git",
+        "tag": "v1.0.1",
+        "commit": "99103ed9989227791cb7819ba2b0da9aab6054b1"
+      },
+      "metrouicss": {
+        "git": "https://github.com/gogromat/meteor-metro-ui",
+        "branch": "master",
+        "commit": "432860979a5872605777be7c874356fa930ea860"
       }
     }
   }

@@ -1,5 +1,15 @@
 {
   "packages": {
-    "mocha-web": {}
+    "mocha-web": {},
+    "meteor-foundation": {
+      "git": "git://github.com/rubyblackbelt/meteor-foundation.git"
+    },
+    "foundation-icons-general": {},
+    "foundation-icons-gen-enclosed": {},
+    "foundation-icons-social": {},
+    "foundation-icons-accessibility": {},
+    "metrouicss": {
+      "git": "https://github.com/gogromat/meteor-metro-ui"
+    }
   }
 }

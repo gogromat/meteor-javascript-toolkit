@@ -1,0 +1,69 @@
+<head>
+  <title>Javascript Toolkit</title>
+</head>
+
+<body>
+	{{> mochaTestReport}}
+
+	{{>header}}
+
+	<br>
+
+	{{>tags}}
+
+	<br>
+
+	{{>add_node}}
+
+	<br>
+
+	{{>nodes}}
+
+	<br>
+
+	{{>footer}}
+
+</body>
+
+<template name="tags">
+	<div class="row">
+	</div>
+</template>	
+
+
+<template name="nodes">
+
+	{{#each nodes}}
+		<div class="row panel">
+
+			<div class="small-4 large-2 columns">
+				<h5>
+					<a href="{{link}}" target="_blank">{{name}}</a>
+				</h5>				
+				{{#if image}}
+					<img src="{{image}}" class="node-image">
+				{{/if}}
+			</div>
+
+			<div class="small-4 large-9 columns">
+				<h5>
+					<a href=""></a>
+				</h5>
+
+				{{description}} 
+			</div>
+
+			<div class="small-4 large-1 columns block">
+				<div class="centered">
+					{{#if isClientOwner}}
+						{{> remove_node}}
+					{{else}}
+						{{> rate_node}}
+					{{/if}}
+				</div>
+			</div>
+
+		</div>
+	{{/each}}
+
+</template>
