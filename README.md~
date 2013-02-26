@@ -1,4 +1,4 @@
 meteor-javascript-toolkit
 =========================
 
-Collection of JavaScript Libraries 
+Collection of JavaScript Libraries
