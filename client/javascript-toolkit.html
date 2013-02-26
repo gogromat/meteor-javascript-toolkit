@@ -43,17 +43,19 @@
 <template name="nodes">
 	{{#each nodes}}
 		<div>
-			<a href="{{link}}">{{name}}</a>
+			<a href="{{link}}" target="_blank">{{name}}</a>
 			<br>
 			{{#if image}}
 				<img src="{{image}}">
 			{{/if}}
 			<div>
-				{{description}} <strong>Owner:</strong>{{owner}}
+				{{description}} 
+
+			
 				{{#if isClientOwner}}
-					{{> delete_node}}
+					{{> remove_node}}
 				{{else}}
-					
+
 				{{/if}}
 			</div>
 		</div>

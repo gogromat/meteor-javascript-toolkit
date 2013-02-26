@@ -1,6 +1,6 @@
-Template.delete_node.events({
+Template.remove_node.events({
 
-	'dblclick #delete_node': function(evt) {
+	'dblclick #remove_node': function(evt) {
     console.log('This id is:', this._id);
     Meteor.call("remove_node", this._id);
 	}
