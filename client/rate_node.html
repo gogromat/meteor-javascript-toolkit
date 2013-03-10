@@ -1,4 +1,25 @@
 <template name="rate_node">
-	<i class="general foundicon-up-arrow"   id="" style="font-size:30px;"></i>
-	<i class="general foundicon-down-arrow" id="" style="font-size:30px;"></i>
+
+
+	{{#with node_ranking}}
+
+		<div class="{{#if currentUserLikes}}green{{/if}}">
+			<i class="general foundicon-up-arrow" 
+			   data-toggle="tooltip" 
+			   data-placement="right"
+			   data-original-title="{{total_text}}<br>{{like_text}}"></i>
+		</div>
+
+		<br>
+		<br>
+
+		<div class="{{#if currentUserDislikes}}red{{/if}}">
+			<i class="general foundicon-down-arrow"
+			   data-toggle="tooltip" 
+			   data-placement="right"
+			   data-original-title="{{total_text}}<br>{{dislike_text}}"></i>
+		</div>
+
+	{{/with}}
+			
 </template>	

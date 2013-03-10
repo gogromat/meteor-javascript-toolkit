@@ -33,37 +33,45 @@
 
 <template name="nodes">
 
-	{{#each nodes}}
-		<div class="row panel">
+		<div class="row-fluid">
+			<div class="span8 offset2">
+		
+				<hr>
 
-			<div class="small-4 large-2 columns">
-				<h5>
-					<a href="{{link}}" target="_blank">{{name}}</a>
-				</h5>				
-				{{#if image}}
-					<img src="{{image}}" class="node-image">
-				{{/if}}
-			</div>
-
-			<div class="small-4 large-9 columns">
-				<h5>
-					<a href=""></a>
-				</h5>
-
-				{{description}} 
-			</div>
-
-			<div class="small-4 large-1 columns block">
-				<div class="centered">
-					{{#if isClientOwner}}
-						{{> remove_node}}
-					{{else}}
-						{{> rate_node}}
-					{{/if}}
+				{{#each nodes}}
+				<div class="row-fluid">
+					<div class="span2 center">
+						<h5>
+							<a href="{{link}}" target="_blank">{{name}}</a>
+						</h5>				
+						{{#if image}}
+							<img src="{{image}}" class="node-image">
+						{{/if}}
+					</div>
+					<div class="span8">
+						<div {{#if isClientOwner}}
+								ContentEditable class="owner_node_description"
+							  {{/if}}>
+							{{description}} 
+						</div>
+					</div>
+					<div class="span2 pull-right">
+						<div>
+							{{#if isClientOwner}}
+								{{> remove_node}}
+							{{else}}
+								{{> rate_node}}
+							{{/if}}
+						</div>
+					</div>
 				</div>
-			</div>
 
+				<hr>
+				
+				{{/each}}
+			
+
+			</div>
 		</div>
-	{{/each}}
 
 </template>
