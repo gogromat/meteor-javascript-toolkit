@@ -59,6 +59,12 @@ img.node-image {
   padding: 10px 15px;
  }
 
+.center { 
+	float: none; 
+	margin-left: auto; 
+	margin-right: auto; 
+}
+
 
 
 
@@ -70,10 +76,23 @@ i[class*="foundicon-"] {
 	transition: color .5s;
 }
 
+i.foundicon-up-arrow, i.foundicon-down-arrow {
+	font-size:30px;
+}
+
 i.foundicon-up-arrow:hover {
 	color: green;
 }
 
+
 i.foundicon-down-arrow:hover, i.foundicon-remove:hover {
 	color: #980000;
+}
+
+.green {
+	color: green !important;
+}
+
+.red {
+	color: #980000!important;
 }

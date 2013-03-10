@@ -7,8 +7,7 @@ Meteor.publish('users', function () {
 
 Meteor.publish('nodes', function () {
 	return Nodes.find({});
-})
-
+});
 
 
 //Meteor.users.update( {_id:Meteor.user()._id}, {profile:{"stuff":true}});
@@ -18,7 +17,7 @@ Meteor.users.deny({
 	},
 	// allow for now
 	insert: function () {
-		return false;
+		return true;
 	},
 	remove: function () {
 		return true;

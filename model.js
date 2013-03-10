@@ -2,12 +2,16 @@ Nodes = new Meteor.Collection("nodes");
 
 Nodes.allow({
 	insert: function () {
-		return false;
+		return true;
 	},
 	remove: function () {
-		return false;
+		return true;
+	},
+	update: function () {
+		return true;
 	}
 });
+
 
 if (Meteor.isServer) {
 	Meteor.startup(function () {
@@ -34,7 +38,8 @@ if (Meteor.isServer) {
 					description: "jQuery UI is a curated set of user interface interactions, effects, widgets, and themes built"+
 								 " on top of the jQuery JavaScript Library. Whether you're building highly interactive web applications"+
 								 " or you just need to add a date picker to a form control, jQuery UI is the perfect choice.",
-					owner: owner_id
+					owner: owner_id,
+					ranks: []
 				};
 				Nodes.insert(node);
 			}
@@ -45,7 +50,8 @@ if (Meteor.isServer) {
 					image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQBFd11-y3tRIE_mZuckB4O6qSmuG8Ngret6-tl_bcYYZnJuqol",
 					description: "Meteor is an ultra-simple environment for building modern websites. What once took weeks, even"+
 								 "with the best tools, now takes hours with Meteor.",
-					owner: owner_id
+					owner: owner_id,
+					ranks: []
 				};
 				Nodes.insert(node);
 			}
@@ -58,7 +64,8 @@ if (Meteor.isServer) {
 								 " programming support that you would expect in Prototype.js (or Ruby), but without extending"+
 								 " any of the built-in JavaScript objects. It's the tie to go along with jQuery's tux, and"+
 								 " Backbone.js's suspenders.",
-					owner: owner_id
+					owner: owner_id,
+					ranks: []
 				};
 				Nodes.insert(node);
 			}
@@ -85,6 +92,49 @@ Meteor.methods({
         	throw new Meteor.Error(400, "Required parameters missing (node_id, node_item)");
       	}
       	Nodes.remove({_id: node_id});
+	},
+	'change_node_rank': function(node_id, rank, action) {
+		var rank = parseInt(rank, 10),
+			user  = Meteor.userId();
+
+		console.log("Entered the rank change");
+
+		if (!node_id || !rank || rank === NaN) {
+			throw new Meteor.Error(400, "Required parameters missing (node_id, node_item)");
+		}
+		if (rank > 0) {
+			rank = Boolean(true);
+		} else {
+			rank = Boolean(false);
+		}
+
+		console.log("Turned to boolean:", rank);
+		
+		if (action === 'add') {
+
+			var previousRank = Nodes.find({_id: node_id, "ranks.user": user }).fetch();
+			//console.log("Node ID:",node_id, "User:", user, "PrevRank:",previousRank);
+
+			if (previousRank.length < 1) {
+				//console.log("No previous rank found, inserting new rank");
+				Nodes.update(node_id, { $push : {ranks: { user:user, vote:rank } } });
+			} else if (previousRank.vote !== rank) {
+				//console.log("Updating old rank with different value", previousRank.vote, "New vote:", rank);
+				Nodes.update(node_id, {$pull: { ranks: {user:user   	    } } });
+				Nodes.update(node_id, {$push: { ranks: {user:user,vote:rank } } });
+			} else {			
+				console.log("Same vote, skipping!");
+			}
+
+			var newRank = Nodes.find({_id: node_id, "ranks.user": user }).fetch();
+
+			console.log("Added: new rank:", newRank);
+
+		} else if (action === 'remove') {
+
+		} else {
+			throw new Meteor.Error(405, "Wrong Action");
+		}
 	}
 });
 
@@ -93,5 +143,9 @@ Meteor.methods({
 function isOwner(userId) {
 	//console.log("Is owner?",userId, Meteor.userId());
 	return (userId === Meteor.userId() && Meteor.userId() !== null);
+}
+
+function isCurrentUser(userId) {
+	return isOwner(userId);
 }
 //}

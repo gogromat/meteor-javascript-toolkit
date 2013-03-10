@@ -1,4 +1,5 @@
 meteor-javascript-toolkit
 =========================
 
-Collection of JavaScript Libraries 
+Rating system for Libraries
+
