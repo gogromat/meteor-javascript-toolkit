@@ -10,6 +10,7 @@
     "foundation-icons-accessibility": {},
     "metrouicss": {
       "git": "https://github.com/gogromat/meteor-metro-ui"
-    }
+    },
+    "canvas-image-manipulation": {}
   }
 }

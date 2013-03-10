@@ -38,6 +38,30 @@ Template.add_node.events({
         new_description.val("");
 
       }
-	}
+	},
+  'change #node-image-input': function (evt) {
+      uploadImage(evt.target.files[0]);
 
+  },
+  'change #new_node_image_url': function(evt) {
+    uploadImage($(evt.target).val().trim());
+  }
 });
+
+
+function uploadImage(source, callback, options) {
+  var callback = callback ||  function (img) {
+                                if(img.type === "error") {
+                                  console.log("Error loading image " + source);
+                                } else {
+                                  $(img).attr('id','node-image-result');
+                                  $("#node-image-upload").append(img);
+                                }
+                              };
+
+  var options = options || {maxWidth: 96, maxHeight: 96};
+
+  window.loadImage(source,callback,options);
+  //   $("#node-image-upload").append('<canvas id="resized" ></canvas>');
+  //   var resized = new obscura('#node-image-result','#resized').resize(96, keepProportions=true).save();
+}
