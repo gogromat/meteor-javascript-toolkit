@@ -14,7 +14,7 @@ describe('Nodes', function() {
 	new_node.name 		 = "Test node names";
 	new_node.url  		 = "Test node url";
 	new_node.description = "Test node description";
-	
+	/*
     it('should add new node', function() {
     	Meteor.call("add_new_node", new_node, function (error, result) {
 		    var node = Nodes.findOne({name: new_node.name});
@@ -31,7 +31,7 @@ describe('Nodes', function() {
 		var node2   = Nodes.findOne({name: new_node.name});
         chai.assert.isUndefined(node2);
     });
-
+	*/
 
   });
 
