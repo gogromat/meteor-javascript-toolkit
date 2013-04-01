@@ -13,7 +13,7 @@ Template.add_node.events({
             image    = new_image.val().trim(),
             new_description = $("#new_node_description"),
             description     = new_description.val().trim(),
-            new_node_item   = {name:'',url:'',description:'',owner: Meteor.userId()};  	
+            new_node_item   = {name:'', url:'', description:'', owner: Meteor.userId()};  	
 
         if (name === "" || url === "") {
           return false;
@@ -29,39 +29,37 @@ Template.add_node.events({
           new_node_item.description = description;
         }
 
-        console.log("Meteor.call(add_new_node)");
         Meteor.call("add_new_node", new_node_item);
 
         new_name.val("");
         new_url.val("");
         new_image.val("");
         new_description.val("");
-
       }
 	},
-  'change #node-image-input': function (evt) {
-      uploadImage(evt.target.files[0]);
-
-  },
-  'change #new_node_image_url': function(evt) {
-    uploadImage($(evt.target).val().trim());
+  'click #add_new_image_div' : function () {
+    activate_filepicker_for("adding");
   }
+  /*
+  'change #filepicker-attachment': function (evt) {
+    console.log("Event: ", evt, evt.fpfile, evt.fpfile.url);
+    //var image = document.getElementById("attachment");
+    //console.log(image, image.value, image.files);
+    //console.log(image.fpfile, JSON.stringify(image.fpfile) );
+    //Meteor.call('save_to_filepicker');
+    if (Session.equals('isChangingImage', true) ) {
+      
+      Session.set('isChangingImage', false);
+    } else {
+      add_image_div(evt.target, evt.fpfile.url);
+      $("#new_node_image_url").val(evt.fpfile.url);
+    }
+  }*/
 });
 
+//Template.add_node.helpers({
+  //'get_new_nodes_id': function() {
+  //  return Nodes._makeNewID();
+  //}
+//});
 
-function uploadImage(source, callback, options) {
-  var callback = callback ||  function (img) {
-                                if(img.type === "error") {
-                                  console.log("Error loading image " + source);
-                                } else {
-                                  $(img).attr('id','node-image-result');
-                                  $("#node-image-upload").append(img);
-                                }
-                              };
-
-  var options = options || {maxWidth: 96, maxHeight: 96};
-
-  window.loadImage(source,callback,options);
-  //   $("#node-image-upload").append('<canvas id="resized" ></canvas>');
-  //   var resized = new obscura('#node-image-result','#resized').resize(96, keepProportions=true).save();
-}

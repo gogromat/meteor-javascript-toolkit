@@ -22,10 +22,46 @@ hr {
 	border-right: #adbfce;
 }
 
-img.node-image {
-	width:96px;
-	height:96px;
+
+/* NODE IMAGE */
+
+img#node_image_preview, div.node-image-div {
+  width:  96px;
+  height: 96px;
 }
+
+div.node-image-div {
+	position: relative;
+    cursor: pointer;
+    no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+div.node-image-text {
+    background-color: #adbfce;
+    position: 		  absolute;
+    bottom: 		  0px;
+    width: 			  100%;
+    overflow: 		  none;
+    display: 		  none;
+    filter: alpha(opacity=60);
+	opacity: 0.6;
+}
+
+div.node-image-text:hover {
+    background-color: #adbfce !important;
+    filter: alpha(opacity=100);
+	opacity: 1;
+}
+
+div.node-image-div:hover div.node-image-text {
+    display: block;
+}
+
+
 
 .panel {
 	margin-top:    8px !important;
@@ -65,6 +101,18 @@ img.node-image {
 	margin-right: auto; 
 }
 
+.centered_div {
+  position: fixed;
+  top: 40%;
+  left: 40%;
+  margin-top: -50px;
+  margin-left: -100px;
+  z-index: 10000;
+}
+
+#add_image_div {
+
+}
 
 
 
@@ -82,11 +130,13 @@ i.foundicon-up-arrow, i.foundicon-down-arrow {
 
 i.foundicon-up-arrow:hover {
 	color: green;
+	cursor: pointer;
 }
 
 
 i.foundicon-down-arrow:hover, i.foundicon-remove:hover {
 	color: #980000;
+	cursor: pointer;
 }
 
 .green {

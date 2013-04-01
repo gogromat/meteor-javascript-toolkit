@@ -1,30 +1,36 @@
 <template name="add_node">
 
-	<div class="row">
+	<div class="row-fluid">
 
-		<div class="span12">
-			Name
-			<input type="text" placeholder="Name of new node" id="new_node_name">
+		<div class="span8 offset2">
 
-			Website
-			<input type="text" placeholder="http://www. ... .com" id="new_node_url">
+			<div class="row">
 
-			Image
-			<input type="text" placeholder="96 x 96" id="new_node_image_url">
-			or
-			<h5>Select an image file</h5>
-			<input type="file" id="node-image-input">
+				<div class="span8 well">
 
 
-			<div class="well" id="node-image-upload">
-				<p><span class="label label-warning">Notice</span> This demo works only in browsers with support for the <a href="https://developer.mozilla.org/en/DOM/window.URL">URL</a> or <a href="https://developer.mozilla.org/en/DOM/FileReader">FileReader</a> API.</p>
+					<input type="hidden" id="new_node_image_url" value="">
+
+					Name
+					<input type="text" placeholder="Name of new node" id="new_node_name"><br>
+
+					Website
+					<input type="text" placeholder="http://www. ... .com" id="new_node_url"><br>
+
+					<a href="#" id="add_new_image_div" class="btn">
+						<i class="icon-picture"></i>Add Image
+					</a>
+
+					<br>
+
+					Description
+					<textarea id="new_node_description"></textarea>
+
+					<button id="add_new_node" class="btn btn-success">Add Node</button>
+				</div>
+
 			</div>
 
-			Description
-			<textarea id="new_node_description"></textarea>
-
-
-			<button id="add_new_node">+ Node</button>
 		</div>
 		
 	</div>

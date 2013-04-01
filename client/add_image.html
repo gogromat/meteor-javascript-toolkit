@@ -1,0 +1,50 @@
+<template name="add_image">
+
+	<div id="add_image_div" class="centered_div well" 
+		 style="display:{{#if inserting_image}}block{{else}}none{{/if}};">
+
+		<div style="float:right">			
+			<i class="gen-enclosed foundicon-remove" style="font-size:25px;" id="add_image_close"></i>
+		</div>
+		<br>
+		
+
+		<input type="filepicker"
+			id="filepicker-attachment"
+			data-fp-button-class="btn filepicker-attachment"
+			data-fp-button-text="Add image" 
+			data-fp-mimetypes="image/*"
+			data-fp-container="modal"
+			data-fp-maxsize="5000000" 
+			data-fp-services="COMPUTER,IMAGE_SEARCH,URL,DROPBOX,GITHUB,GOOGLE_DRIVE,GMAIL,FTP,WEBDAV">
+
+		<input type="hidden" value="" id="node_image_url" name="node_image_url">
+		
+
+		<!-- <h5>Add image url</h5> -->
+		<!-- <input type="text" placeholder="96 x 96" id="add_node_image_url"> -->
+		<!-- <br> -->
+		<!-- <h5>or</h5> -->
+		<!-- <h5>Add image from your computer</h5> -->
+		<!-- <input type="file" id="add_image_input"> -->
+		<!-- <div class="well"> -->
+			<!-- <h5>Image Preview</h5> -->
+			<!--
+			<p id="add_image_upload">
+				<span class="label label-warning">Notice</span> 
+				This demo works only in browsers with support for the 
+				<a href="https://developer.mozilla.org/en/DOM/window.URL">URL</a> or 
+				<a href="https://developer.mozilla.org/en/DOM/FileReader">FileReader</a> API.
+			</p> -->
+		<!-- </div> -->
+
+		<button id="add_image_cancel" class="btn btn-danger">
+			Cancel
+		</button>
+		<button id="add_image_success" style="display:none;" class="btn btn-success">
+			Yes, add this image
+		</button>
+
+	</div>
+
+</template>
