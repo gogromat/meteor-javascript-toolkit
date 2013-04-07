@@ -2,7 +2,7 @@
   "meteor": {
     "git": "https://github.com/meteor/meteor.git",
     "branch": "master",
-    "commit": "471f661c5b32bf66746077defbbac8b2b26046c6"
+    "commit": "f07715dc70de16a7aab84e56ab0c6cbd9c1f9dc6"
   },
   "dependencies": {
     "basePackages": {
@@ -18,13 +18,18 @@
       "metrouicss": {
         "git": "https://github.com/gogromat/meteor-metro-ui",
         "branch": "master"
+      },
+      "canvas-image-manipulation": {},
+      "meteor-filepicker": {
+        "git": "https://github.com/gogromat/meteor-filepicker",
+        "branch": "master"
       }
     },
     "packages": {
       "mocha-web": {
         "git": "https://github.com/mad-eye/meteor-mocha-web.git",
-        "tag": "v0.0.3",
-        "commit": "aa37d9be6dd90d4abeba6de0b693e2e0297dfe54"
+        "tag": "v0.1.0",
+        "commit": "540fd609af4e4cfa921a1ef1151bee542d2e06a4"
       },
       "meteor-foundation": {
         "git": "git://github.com/rubyblackbelt/meteor-foundation.git",
@@ -55,6 +60,16 @@
         "git": "https://github.com/gogromat/meteor-metro-ui",
         "branch": "master",
         "commit": "432860979a5872605777be7c874356fa930ea860"
+      },
+      "canvas-image-manipulation": {
+        "git": "https://github.com/jackp/canvas-image-manipulation.git",
+        "tag": "v0.1.0",
+        "commit": "bd29971e84b1f37168bca4548f621df26845c978"
+      },
+      "meteor-filepicker": {
+        "git": "https://github.com/gogromat/meteor-filepicker",
+        "branch": "master",
+        "commit": "931ffab99ba09fe4697861912fdcb2cdfe755159"
       }
     }
   }

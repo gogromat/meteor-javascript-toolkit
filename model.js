@@ -72,9 +72,17 @@ if (Meteor.isServer) {
 		}
 
 	});
+} else if (Meteor.isClient) {
+	Meteor.startup(function() {
+	    //var require = __meteor_bootstrap__.require;
+	    //var fs = require('fs');
+	    //fs.symlinkSync('../../../../uploads', '.meteor/local/build/static/uploads'); 
+	});
 }
 
+
 	
+// todo: move to server only 	
 Meteor.methods({
 	'add_new_node': function(node_item) {
 		//console.log("Sent user id:", node_item.owner, "Current user id:",this.userId)
@@ -82,7 +90,7 @@ Meteor.methods({
         	throw new Meteor.Error(400, "Required parameters are missing");
       	}
       	var inserted =  Nodes.insert(node_item); 
-      	//console.log("Inserted new node item:", inserted, node_item);
+      	console.log("Inserted new node item:", inserted, node_item);
       	return inserted;
 	},
 	'remove_node': function(node_id) {
@@ -135,7 +143,72 @@ Meteor.methods({
 		} else {
 			throw new Meteor.Error(405, "Wrong Action");
 		}
+	},
+	'change_node_image_url' : function(node_id, image_url) {
+		var node = Nodes.findOne(node_id);
+		if (!node_id || !image_url || !isOwner(node.owner)) {
+			throw new Meteor.Error(400, "Required parameters missing (node_id, image_url)");
+		}
+		//var fpfile = {url: node.image};
+		//filepicker.remove(fpfile, function(data){
+		//    console.log(data);
+		//});
+		Nodes.update(node_id, { $set: {image: image_url} } );
+	},
+	'change_node_description': function(node_id, new_description) {
+		var node = Nodes.findOne(node_id);
+		if (!node_id || !new_description || !isOwner(node.owner)) {
+			throw new Meteor.Error(400, "Required parameters missing (node_id, description)");
+		}
+		Nodes.update(node_id, {$set: {description: new_description}});
 	}
+	/*,
+	saveFile: function(blob, name, path, encoding) {
+	    var path 	 = cleanPath(path), 
+	    	fs 		 = __meteor_bootstrap__.require('fs'),
+	      	name 	 = cleanName(name || 'file'), 
+	      	encoding = encoding || 'binary',
+	      	chroot   = Meteor.chroot || 'public';
+	    // Clean up the path. Remove any initial and final '/' -we prefix them-,
+	    // any sort of attempt to go to the parent directory '..' and any empty directories in
+	    // between '/////' - which may happen after removing '..'
+	    path = chroot + (path ? '/' + path + '/' : '/');
+	    
+	    // TODO Add file existance checks, etc...
+	    fs.writeFile(path + name, blob, encoding, function(err) {
+	      if (err) {
+	        throw (new Meteor.Error(500, 'Failed to save file.', err));
+	      } else {
+	        console.log('The file ' + name + ' (' + encoding + ') was saved to ' + path);
+	      }
+	    }); 
+	 
+	    function cleanPath(str) {
+	      if (str) {
+	        return str.replace(/\.\./g,'').replace(/\/+/g,'').
+	          replace(/^\/+/,'').replace(/\/+$/,'');
+	      }
+	    }
+	    function cleanName(str) {
+	      return str.replace(/\.\./g,'').replace(/\//g,'');
+	    }
+	},
+	save_to_filepicker: function () {
+		var fpfile = { 
+			url: 'https://www.filepicker.io/api/file/AtDeeAp04RPirFBkQCjWez',
+		    filename: 'hello.txt', 
+		    mimetype: 'text/plain', 
+		    isWriteable: true, size: 100
+		};
+		console.log("Storing", fpfile.filename);
+		filepicker.store(
+			fpfile, 
+			{filename: 'myCoolFile.txt'},
+	    	function(new_fpfile){
+	        	console.log(JSON.stringify(new_fpfile));
+			}
+		);
+	}*/
 });
 
 

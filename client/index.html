@@ -5,6 +5,10 @@
 <body>
 	{{> mochaTestReport}}
 
+
+	{{>add_image}}
+
+
 	{{>header}}
 
 	<br>
@@ -39,34 +43,53 @@
 				<hr>
 
 				{{#each nodes}}
-				<div class="row-fluid">
-					<div class="span2 center">
-						<h5>
-							<a href="{{link}}" target="_blank">{{name}}</a>
-						</h5>				
-						{{#if image}}
-							<img src="{{image}}" class="node-image">
-						{{/if}}
-					</div>
-					<div class="span8">
-						<div {{#if isClientOwner}}
-								ContentEditable class="owner_node_description"
-							  {{/if}}>
-							{{description}} 
-						</div>
-					</div>
-					<div class="span2 pull-right">
-						<div>
-							{{#if isClientOwner}}
-								{{> remove_node}}
-							{{else}}
-								{{> rate_node}}
-							{{/if}}
-						</div>
-					</div>
-				</div>
+					<div class="row-fluid">
 
-				<hr>
+						<div class="span2 center">
+							<h5>
+								<a href="{{link}}" target="_blank">{{name}}</a>
+							</h5>
+
+							{{#unless isClientOwner}}<a href="{{link}}" >{{/unless}}
+								<div class="node-image-div" 
+									 style="background-image: 
+									 		url('{{#if image}}{{image}}{{else}}no_image.png{{/if}}')">
+
+								 		{{#if isClientOwner}}
+								 			<div class="owner_node_image_change node-image-text">Change image</div>
+								 		{{/if}}
+
+								</div>
+							{{#unless isClientOwner}}</a>{{/unless}}
+
+						</div>
+
+						<div class="span8">
+							<h5>
+								<a href="{{link}}" class="node_link" target="_blank">
+									{{link}}
+								</a>
+							</h5>
+							<div {{#if isClientOwner}}
+									ContentEditable class="owner_node_description"
+								  {{/if}}>
+								{{description}} 
+							</div>
+						</div>
+
+						<div class="span2 pull-right">
+							<div>
+								{{#if isClientOwner}}
+									{{> remove_node}}
+								{{else}}
+									{{> rate_node}}
+								{{/if}}
+							</div>
+						</div>
+
+					</div>
+
+					<hr>
 				
 				{{/each}}
 			
