@@ -101,6 +101,10 @@ div.node-image-div:hover div.node-image-text {
 	margin-right: auto; 
 }
 
+.center-inline {
+  text-align: center;
+}
+
 .centered_div {
   position: fixed;
   top: 40%;
@@ -145,4 +149,11 @@ i.foundicon-down-arrow:hover, i.foundicon-remove:hover {
 
 .red {
 	color: #980000!important;
+}
+
+/* LINKS */
+a.node_link {
+  color: gray;
+  font-style: italic;
+  font-weight: normal !important;
 }

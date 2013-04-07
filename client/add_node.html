@@ -6,27 +6,53 @@
 
 			<div class="row">
 
-				<div class="span8 well">
+				<div class="span12 well">
 
 
-					<input type="hidden" id="new_node_image_url" value="">
+					<div class="row-fluid">
 
-					Name
-					<input type="text" placeholder="Name of new node" id="new_node_name"><br>
+						<div class="span3">
+							<input type="hidden" id="new_node_image_url" value="">
 
-					Website
-					<input type="text" placeholder="http://www. ... .com" id="new_node_url"><br>
+							Name
+							<br>
+							<input type="text" placeholder="Name" id="new_node_name" />
+							<br>
 
-					<a href="#" id="add_new_image_div" class="btn">
-						<i class="icon-picture"></i>Add Image
-					</a>
+							Website
+							<br>
+							<input type="text" placeholder="Website" id="new_node_url" />
 
-					<br>
+						</div>
 
-					Description
-					<textarea id="new_node_description"></textarea>
+						<div class="span3" >														
+							Description
+							<br>
+							<textarea id="new_node_description" placeholder="Description" rows="4"></textarea>
+							
+						</div>
 
-					<button id="add_new_node" class="btn btn-success">Add Node</button>
+						<div class="span3 center-inline">
+							Image
+							<br>
+							<div class="well">
+								<a href="#" id="add_new_image_div" class="btn">
+									<i class="icon-picture"></i>Add Image
+								</a>
+							</div>
+
+						</div>
+
+						<div class="span3">
+							<br>
+							<button id="cancel_add_new_node" class="btn btn-danger">&nbsp;&nbsp;Cancel&nbsp;</button>
+							<br>
+							<br>
+							<button id="add_new_node" class="btn btn-success">Add node</button>
+						</div>
+
+					</div>
+					
 				</div>
 
 			</div>
